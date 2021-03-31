@@ -14,7 +14,7 @@ class ActivityElements():
         self.elements_order.append(0)
 
     def create_decision(self, name):
-        decision = 'd1'
+        decision = name
         self.decision_node.append(decision)
 
         self.elements_order.append(1)
