@@ -24,20 +24,18 @@ if __name__ == "__main__":
             if option == 1:
                 start_node = input("Nome do Nó Inicial: ")
                 act.create_initial_node(start_node)
-                
+
                 while(1):
                     os.system("clear")
-                    
                     option1 = int(input(
-                        "-- Inserir Elemento no Diagrama de Atividades --\n"+
-                        "1 - Atividade\n"+
-                        "2 - Nó de Decisão\n"+
-                        "3 - Nó de Fusão\n"+
-                        "4 - Nó Final\n"+
+                        "-- Inserir Elemento no Diagrama de Atividades --\n" +
+                        "1 - Atividade\n" +
+                        "2 - Nó de Decisão\n" +
+                        "3 - Nó de Fusão\n" +
+                        "4 - Nó Final\n" +
                         "5 - Sair\n"
-                        +"-> "
+                        + "-> "
                     ))
                     if option1 == 1:
                         activity_name = input("Nome da Atividade: ")
                         act.elements.create_activity(activity_name)
-                        
