@@ -6,6 +6,7 @@ class ActivityElements():
         self.activity_name = []
         self.elements_order = []
         self.decision_node = []
+        self.merge_node = []
 
     def create_activity(self, name):
         activity = name
@@ -18,3 +19,9 @@ class ActivityElements():
         self.decision_node.append(decision)
 
         self.elements_order.append(1)
+
+    def create_merge(self, name):
+        merge = "m1"
+        self.merge_node.append(merge)
+
+        self.elements_order.append(2)

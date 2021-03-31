@@ -47,3 +47,7 @@ if __name__ == "__main__":
                     elif option1 == 2:
                         decision_node = input("Nome do Nó de Decisão: ")
                         act.elements.create_decision(decision_node)
+
+                    elif option1 == 3:
+                        merge = input("Nome do Nó de Fusão: ")
+                        act.elements.create_merge(merge)

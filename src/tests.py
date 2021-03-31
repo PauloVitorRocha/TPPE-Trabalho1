@@ -72,4 +72,10 @@ def test_create_decision3():
     obj = ActivityDiagram('ad3')
     obj.create_initial_node('n3')
     obj.elements.create_decision('d3')
-    assert 'd3'==obj.elements.decision_node[0]
+    assert 'd3' == obj.elements.decision_node[0]
+
+def test_create_merge():
+    obj = ActivityDiagram('ad1')
+    obj.create_initial_node('n1')
+    obj.elements.create_merge('m1')
+    assert 'm1' == obj.elements.merge_node[0]
