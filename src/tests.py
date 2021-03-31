@@ -19,11 +19,16 @@ def test_activity_diagram3():
 def test_create_initial_node():
     obj = ActivityDiagram('ad1')
     obj.create_initial_node('n1')
-    assert 'n1'==obj.elements.start_node
+    assert 'n1' == obj.elements.start_node
 
 
 def test_create_initial_node2():
     obj = ActivityDiagram('ad2')
     obj.create_initial_node('n2')
-    assert 'n2'==obj.elements.start_node
+    assert 'n2' == obj.elements.start_node
 
+
+def test_create_initial_node3():
+    obj = ActivityDiagram('ad3')
+    obj.create_initial_node('n3')
+    assert 'n3' == obj.elements.start_node
