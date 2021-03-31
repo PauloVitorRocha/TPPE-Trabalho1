@@ -39,3 +39,10 @@ def test_create_activity():
     obj.create_initial_node('n1')
     obj.elements.create_activity('at1')
     assert 'at1' == obj.elements.activity_name[0]
+
+
+def test_create_activity2():
+    obj = ActivityDiagram('ad2')
+    obj.create_initial_node('n2')
+    obj.elements.create_activity('at2')
+    assert 'at2' == obj.elements.activity_name[0]
