@@ -1,4 +1,4 @@
 class ActivityDiagram():
 
     def __init__(self, name):
-        self.name = 'ad1'
+        self.name = name
