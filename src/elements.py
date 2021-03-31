@@ -21,7 +21,7 @@ class ActivityElements():
         self.elements_order.append(1)
 
     def create_merge(self, name):
-        merge = "m1"
+        merge = name
         self.merge_node.append(merge)
 
         self.elements_order.append(2)

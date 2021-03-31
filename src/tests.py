@@ -68,11 +68,13 @@ def test_create_decision2():
     obj.elements.create_decision('d2')
     assert 'd2' == obj.elements.decision_node[0]
 
+
 def test_create_decision3():
     obj = ActivityDiagram('ad3')
     obj.create_initial_node('n3')
     obj.elements.create_decision('d3')
     assert 'd3' == obj.elements.decision_node[0]
+
 
 def test_create_merge():
     obj = ActivityDiagram('ad1')
@@ -80,8 +82,16 @@ def test_create_merge():
     obj.elements.create_merge('m1')
     assert 'm1' == obj.elements.merge_node[0]
 
+
 def test_create_merge2():
     obj = ActivityDiagram('ad2')
     obj.create_initial_node('n2')
     obj.elements.create_merge('m2')
     assert 'm2' == obj.elements.merge_node[0]
+
+
+def test_create_merge3():
+    obj = ActivityDiagram('ad3')
+    obj.create_initial_node('n3')
+    obj.elements.create_merge('m3')
+    assert 'm3' == obj.elements.merge_node[0]
