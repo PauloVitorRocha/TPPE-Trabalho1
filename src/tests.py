@@ -124,3 +124,11 @@ def test_create_transition():
     obj.create_transitions('t1', 0.01)
     assert 't1' == obj.transitions[0].transition_name
     assert 0.01 == obj.transitions[0].transition_prob
+
+
+def test_create_transition2():
+    obj = ActivityDiagram('ad2')
+    obj.create_initial_node('n2')
+    obj.create_transitions('t2', 0.09)
+    assert 't2' == obj.transitions[0].transition_name
+    assert 0.09 == obj.transitions[0].transition_prob
