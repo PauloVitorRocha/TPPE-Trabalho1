@@ -101,3 +101,10 @@ def test_create_final():
     obj.create_initial_node('n1')
     obj.elements.create_final('f1')
     assert 'f1' == obj.elements.final_node[0]
+
+
+def test_create_final2():
+    obj = ActivityDiagram('ad2')
+    obj.create_initial_node('n2')
+    obj.elements.create_final('f2')
+    assert 'f2' == obj.elements.final_node[0]
