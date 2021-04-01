@@ -28,7 +28,7 @@ class ActivityElements():
         self.elements_order.append(2)
 
     def create_final(self, name):
-        final = "f1"
+        final = name
         self.final_node.append(final)
 
         self.elements_order.append(3)

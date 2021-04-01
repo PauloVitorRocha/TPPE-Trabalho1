@@ -96,6 +96,7 @@ def test_create_merge3():
     obj.elements.create_merge('m3')
     assert 'm3' == obj.elements.merge_node[0]
 
+
 def test_create_final():
     obj = ActivityDiagram('ad1')
     obj.create_initial_node('n1')
@@ -108,3 +109,10 @@ def test_create_final2():
     obj.create_initial_node('n2')
     obj.elements.create_final('f2')
     assert 'f2' == obj.elements.final_node[0]
+
+
+def test_create_final3():
+    obj = ActivityDiagram('ad3')
+    obj.create_initial_node('n3')
+    obj.elements.create_final('f3')
+    assert 'f3' == obj.elements.final_node[0]
