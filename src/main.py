@@ -51,3 +51,7 @@ if __name__ == "__main__":
                     elif option1 == 3:
                         merge = input("Nome do Nó de Fusão: ")
                         act.elements.create_merge(merge)
+
+                    elif option1 == 4:
+                        final = input("Nome do Nó Final: ")
+                        act.elements.create_final(final)

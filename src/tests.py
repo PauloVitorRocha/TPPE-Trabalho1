@@ -95,3 +95,9 @@ def test_create_merge3():
     obj.create_initial_node('n3')
     obj.elements.create_merge('m3')
     assert 'm3' == obj.elements.merge_node[0]
+
+def test_create_final():
+    obj = ActivityDiagram('ad1')
+    obj.create_initial_node('n1')
+    obj.elements.create_final('f1')
+    assert 'f1' == obj.elements.final_node[0]

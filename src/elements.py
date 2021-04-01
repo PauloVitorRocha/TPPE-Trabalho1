@@ -7,6 +7,7 @@ class ActivityElements():
         self.elements_order = []
         self.decision_node = []
         self.merge_node = []
+        self.final_node = []
 
     def create_activity(self, name):
         activity = name
@@ -25,3 +26,9 @@ class ActivityElements():
         self.merge_node.append(merge)
 
         self.elements_order.append(2)
+
+    def create_final(self, name):
+        final = "f1"
+        self.final_node.append(final)
+
+        self.elements_order.append(3)
