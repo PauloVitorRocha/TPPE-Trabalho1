@@ -44,6 +44,8 @@ if __name__ == "__main__":
                         activity_name = input("Nome da Atividade: ")
                         act.elements.create_activity(activity_name)
 
+                        # COMEÇAR AQUI O DIAGRAMA DE SEQUÊNCIA ??
+
                     elif option1 == 2:
                         decision_node = input("Nome do Nó de Decisão: ")
                         act.elements.create_decision(decision_node)
@@ -55,3 +57,8 @@ if __name__ == "__main__":
                     elif option1 == 4:
                         final = input("Nome do Nó Final: ")
                         act.elements.create_final(final)
+
+                    elif option1 == 5:
+                        break
+
+                    # TODO: TRATAR SOBRESCRIÇÃO DE ELEMENTOS
