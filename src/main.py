@@ -62,3 +62,9 @@ if __name__ == "__main__":
                         break
 
                     # TODO: TRATAR SOBRESCRIÇÃO DE ELEMENTOS
+
+            elif option == 2:
+                name = input("Nome da Transição: ")
+                prob = float(input("Probabilidade da Transição: "))
+
+                act.create_transitions(name, prob)

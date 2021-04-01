@@ -116,3 +116,11 @@ def test_create_final3():
     obj.create_initial_node('n3')
     obj.elements.create_final('f3')
     assert 'f3' == obj.elements.final_node[0]
+
+
+def test_create_transition():
+    obj = ActivityDiagram('ad1')
+    obj.create_initial_node('n1')
+    obj.create_transitions('t1', 0.01)
+    assert 't1' == obj.transitions[0].transition_name
+    assert 0.01 == obj.transitions[0].transition_prob
