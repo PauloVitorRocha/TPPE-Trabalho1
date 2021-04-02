@@ -7,55 +7,31 @@ class ActivityElements():
     def __init__(self, start_node):
         self.start_node = start_node
         self.activity_name = []
+
         self.decision_node = [[]]
+        self.decision_node_number = 0
+
         self.merge_node = []
         self.final_node = []
         self.elements_order = []
         self.decision_node_number = 0
+
+        self.elements_order = []
 
     def create_activity(self, name):
         activity = name
         self.activity_name.append(activity)
         self.elements_order.append(0)
 
-    def create_decision(self):
-        streams = int(input("Quantidade de fluxos: "))
-        self.decision_node = [[] for i in range(streams)]
-        for i in range(streams):
-            decision_stream = DecisionStream()
-            while True:
-                os.system("clear")
+    def initiate_decision(self, streams):
+        self.decision_node = [ [] for i in range(streams)]
 
-                option = int(
-                    input(
-                        "-- Criação do Fluxo de Decisao {} --\n".format(i+1)+
-                        "1 - Inserir No de Atividade\n"+
-                        "2 - Inserir Transição\n"+
-                        "3 - Inserir No de Merge / Sair\n"+
-                        "4 - Inserir no Final / Sair\n"+
-                        "-> "
-                    )
-                )
+    def create_decision(self, decision):
+        self.decision_node[decision_node_number].append(decision)
 
-                if option == 1:
-                    decision_stream.read_activity()
-
-                elif option == 2:
-                    decision_stream.read_transition()
-
-                elif option == 3:
-                    decision_stream.read_merge()
-                    break
-                
-                elif option == 4:
-                    decision_stream.read_final()
-                    break
-            
-            
-            self.decision_node[self.decision_node_number].append(decision_stream)
+    def aux_decision():
         self.elements_order.append(1)
         self.decision_node_number += 1
-            
 
     def create_merge(self, name):
         merge = name
