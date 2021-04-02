@@ -55,25 +55,25 @@ def test_create_activity3():
     assert 'at3' == obj.elements.activity_name[0]
 
 
-def test_create_decision():
-    obj = ActivityDiagram('ad1')
-    obj.create_initial_node('n1')
-    obj.elements.create_decision('d1')
-    assert 'd1' == obj.elements.decision_node[0]
+# def test_create_decision():
+#     obj = ActivityDiagram('ad1')
+#     obj.create_initial_node('n1')
+#     obj.elements.create_decision('d1')
+#     assert 'd1' == obj.elements.decision_node[0]
 
 
-def test_create_decision2():
-    obj = ActivityDiagram('ad2')
-    obj.create_initial_node('n2')
-    obj.elements.create_decision('d2')
-    assert 'd2' == obj.elements.decision_node[0]
+# def test_create_decision2():
+#     obj = ActivityDiagram('ad2')
+#     obj.create_initial_node('n2')
+#     obj.elements.create_decision('d2')
+#     assert 'd2' == obj.elements.decision_node[0]
 
 
-def test_create_decision3():
-    obj = ActivityDiagram('ad3')
-    obj.create_initial_node('n3')
-    obj.elements.create_decision('d3')
-    assert 'd3' == obj.elements.decision_node[0]
+# def test_create_decision3():
+#     obj = ActivityDiagram('ad3')
+#     obj.create_initial_node('n3')
+#     obj.elements.create_decision('d3')
+#     assert 'd3' == obj.elements.decision_node[0]
 
 
 def test_create_merge():
