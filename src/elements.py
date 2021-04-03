@@ -40,48 +40,50 @@ class ActivityElements():
         self.final_node.append(final)
 
         self.elements_order.append(3)
-#
-#     def create_elements_xml(self, f):
-#         f.write("\t<ActivityDiagramElements>\n")
-#         f.write("\t\t<StartNode name=\"{}\"/>\n".format(self.start_node))
 
-#         a_count = 0
-#         d_count = 0
-#         m_count = 0
-#         f_count = 0
+    def create_elements_xml(self, f):
+        f.write("\t<ActivityDiagramElements>\n")
+        f.write("\t\t<StartNode name=\"{}\"/>\n".format(self.start_node))
 
-#         for i in self.elements_order:
+        a_count = 0
+        d_count = 0
+        m_count = 0
+        f_count = 0
 
-#             if i == 0:
-#                 f.write("\t\t<Activity name=\"{}\"/>\n".format(
-#                     self.activity_name[a_count]
-#                 ))
+        for i in self.elements_order:
 
-#                 a_count += 1
+            if i == 0:
+                f.write("\t\t<Activity name=\"{}\"/>\n".format(
+                    self.activity_name[a_count]
+                ))
 
-#             elif i == 1:
-#                 f.write("\t\t<DecisionNode>\n")
-#                 j = 0
+                a_count += 1
 
-#                 for decision_stream in self.decision_node[d_count]:
-#                     decision_stream.decision_stream_to_xml(f, j)
-#                     j += 1
+            elif i == 1:
+                j = 0
 
-#                 f.write("\t\t</DecisionNode>\n")
-#                 d_count += 1
+                f.write("\t\t<DecisionNode>\n")
 
-#             elif i == 2:
-#                 f.write("\t\t<MergeNode name=\"{}\"/>\n".format(
-#                     self.merge_node[m_count]
-#                 ))
+                for decision_stream in self.decision_node[d_count]:
+                    decision_stream.decision_stream_to_xml(f, j)
+                    j += 1
 
-#                 m_count += 1
+                f.write("\t\t</DecisionNode>\n")
+                
+                d_count += 1
 
-#             elif i == 3:
-#                 f.write("\t\t<FinalNode name=\"{}\"/>\n".format(
-#                     self.final_node[f_count]
-#                 ))
+            elif i == 2:
+                f.write("\t\t<MergeNode name=\"{}\"/>\n".format(
+                    self.merge_node[m_count]
+                ))
 
-#                 f_count += 1
+                m_count += 1
 
-#         f.write("\t</ActivityDiagramElements>\n")
+            elif i == 3:
+                f.write("\t\t<FinalNode name=\"{}\"/>\n".format(
+                    self.final_node[f_count]
+                ))
+
+                f_count += 1
+
+        f.write("\t</ActivityDiagramElements>\n")

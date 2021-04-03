@@ -16,18 +16,20 @@ class ActivityDiagram():
     def create_transitions(self, name, prob):
         transition = ActivityTransitions(name, prob)
         self.transitions.append(transition)
-#
-#     def create_xml(self):
-#         f = open("diagram.xml", "w")
-#         f.write("<ActivityDiagram name=\"{}\">\n".format(self.name))
 
-#         self.elements.create_elements_xml(f)
+    def create_xml(self):
+        f = open("diagram.xml", "w")
 
-#         f.write("\t<ActivityDiagramTransitions>\n")
+        f.write("<ActivityDiagram name=\"{}\">\n".format(self.name))
 
-#         for transition in self.transitions:
-#             transition.transition_to_xml(f, False)
+        self.elements.create_elements_xml(f)
 
-#         f.write("\t</ActivityDiagramTransitions>\n")
-#         f.write("</ActivityDiagram>")
-#         f.close()
+        f.write("\t<ActivityDiagramTransitions>\n")
+
+        for transition in self.transitions:
+            transition.transition_to_xml(f, False)
+
+        f.write("\t</ActivityDiagramTransitions>\n")
+        f.write("</ActivityDiagram>")
+
+        f.close()
