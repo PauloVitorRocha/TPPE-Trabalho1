@@ -57,6 +57,7 @@ def test_create_activity2():
 
 def test_create_activity3():
     obj = ActivityDiagram('ad3')
+
     obj.create_initial_node('n3')
 
     obj.elements.create_activity('at3')
@@ -334,68 +335,106 @@ def test_aux_decision3():
     assert obj.elements.decision_node_number == 3
 
 
-# 
 def test_create_merge():
     obj = ActivityDiagram('ad1')
+
     obj.create_initial_node('n1')
     obj.elements.create_merge('m1')
+
     assert 'm1' == obj.elements.merge_node[0]
+    assert 2 == obj.elements.elements_order[0]
 
 
 def test_create_merge2():
     obj = ActivityDiagram('ad2')
+
     obj.create_initial_node('n2')
     obj.elements.create_merge('m2')
+
     assert 'm2' == obj.elements.merge_node[0]
+    assert 2 == obj.elements.elements_order[0]
 
 
 def test_create_merge3():
     obj = ActivityDiagram('ad3')
+
     obj.create_initial_node('n3')
+
     obj.elements.create_merge('m3')
+    obj.elements.create_merge('m3.1')
+
     assert 'm3' == obj.elements.merge_node[0]
+    assert 2 == obj.elements.elements_order[0]
+
+    assert 'm3.1' == obj.elements.merge_node[1]
+    assert 2 == obj.elements.elements_order[1]
 
 
 def test_create_final():
     obj = ActivityDiagram('ad1')
+
     obj.create_initial_node('n1')
     obj.elements.create_final('f1')
+
     assert 'f1' == obj.elements.final_node[0]
+    assert 3 == obj.elements.elements_order[0]
 
 
 def test_create_final2():
     obj = ActivityDiagram('ad2')
+
     obj.create_initial_node('n2')
     obj.elements.create_final('f2')
+
     assert 'f2' == obj.elements.final_node[0]
+    assert 3 == obj.elements.elements_order[0]
 
 
 def test_create_final3():
     obj = ActivityDiagram('ad3')
+
     obj.create_initial_node('n3')
+
     obj.elements.create_final('f3')
+    obj.elements.create_final('f3.1')
+
     assert 'f3' == obj.elements.final_node[0]
+    assert 3 == obj.elements.elements_order[0]
+
+    assert 'f3.1' == obj.elements.final_node[1]
+    assert 3 == obj.elements.elements_order[1]
 
 
 def test_create_transition():
     obj = ActivityDiagram('ad1')
+
     obj.create_initial_node('n1')
     obj.create_transitions('t1', 0.01)
+
     assert 't1' == obj.transitions[0].transition_name
     assert 0.01 == obj.transitions[0].transition_prob
 
 
 def test_create_transition2():
     obj = ActivityDiagram('ad2')
+
     obj.create_initial_node('n2')
     obj.create_transitions('t2', 0.09)
+
     assert 't2' == obj.transitions[0].transition_name
     assert 0.09 == obj.transitions[0].transition_prob
 
 
 def test_create_transition3():
     obj = ActivityDiagram('ad3')
+
     obj.create_initial_node('n3')
+
     obj.create_transitions('t3', 0.90)
+    obj.create_transitions('t3.1', 11.44)
+
     assert 't3' == obj.transitions[0].transition_name
     assert 0.90 == obj.transitions[0].transition_prob
+
+    assert 't3.1' == obj.transitions[1].transition_name
+    assert 11.44 == obj.transitions[1].transition_prob

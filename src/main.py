@@ -82,7 +82,7 @@ if __name__ == "__main__":
                                         "Probabilidade da Transição: "
                                     )
 
-                                    decision.create_transitions(
+                                    decision.create_transition(
                                         transition_name, transition_prob
                                     )
 
