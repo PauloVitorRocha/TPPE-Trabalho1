@@ -62,7 +62,7 @@ if __name__ == "__main__":
                                     "1 - Inserir Atividade\n" +
                                     "2 - Inserir Transição\n" +
                                     "3 - Inserir Nó de Fusão / Sair\n" +
-                                    "4 - Inserir Nó Final / Sair\n" +
+                                    "4 - Sair\n" +
                                     "-> "
                                 ))
 
@@ -93,9 +93,6 @@ if __name__ == "__main__":
                                     break
 
                                 elif option2 == 4:
-                                    final_name = input("Nome do Nó Final: ")
-                                    decision.create_final(final_name)
-
                                     break
 
                             act.elements.create_decision(decision)
@@ -129,8 +126,6 @@ if __name__ == "__main__":
 
             else:
                 act.create_xml()
-
-                # TODO: TRATAR DIAGRAMA VAZIO
 
                 break
 

@@ -1,13 +1,11 @@
 from transitions import ActivityTransitions
 
-
 class DecisionStream():
 
     def __init__(self):
         self.transitions = []
 
         self.merge_node = None
-        self.final_node = None
 
         self.activity_node = []
 
@@ -23,10 +21,6 @@ class DecisionStream():
 
     def create_merge(self, merge_name):
         self.merge_node = merge_name
-        self.elements.append(2)
-
-    def create_final(self, final_name):
-        self.final_node = final_name
         self.elements.append(1)
 
     def decision_stream_to_xml(self, f, k):
@@ -34,7 +28,6 @@ class DecisionStream():
 
         a_count = 0
         m_count = 0
-        f_count = 0
 
         for i in self.elements:
 
@@ -46,13 +39,6 @@ class DecisionStream():
                 a_count += 1
 
             elif i == 1:
-                f.write("\t\t\t\t<FinalNode name=\"{}\"/>\n".format(
-                    self.final_node[f_count]
-                ))
-
-                f_count += 1
-
-            elif i == 2:
                 f.write("\t\t\t\t<MergeNode name=\"{}\"/>\n".format(
                     self.merge_node[m_count]
                 ))

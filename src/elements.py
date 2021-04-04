@@ -1,3 +1,5 @@
+from exceptions import ActivityDiagramRuleException
+
 class ActivityElements():
 
     def __init__(self, start_node):
@@ -9,7 +11,7 @@ class ActivityElements():
         self.decision_node_number = 0
 
         self.merge_node = []
-        self.final_node = []  # +1?
+        self.final_node = None
 
         self.elements_order = []
 
@@ -36,9 +38,11 @@ class ActivityElements():
         self.elements_order.append(2)
 
     def create_final(self, name):
-        final = name
-        self.final_node.append(final)
+        
+        if self.final_node != None:
+            raise ActivityDiagramRuleException
 
+        self.final_node = name
         self.elements_order.append(3)
 
     def create_elements_xml(self, f):
@@ -48,7 +52,9 @@ class ActivityElements():
         a_count = 0
         d_count = 0
         m_count = 0
-        f_count = 0
+
+        if self.final_node == None:
+            raise ActivityDiagramRuleException
 
         for i in self.elements_order:
 
@@ -81,9 +87,7 @@ class ActivityElements():
 
             elif i == 3:
                 f.write("\t\t<FinalNode name=\"{}\"/>\n".format(
-                    self.final_node[f_count]
+                    self.final_node
                 ))
-
-                f_count += 1
 
         f.write("\t</ActivityDiagramElements>\n")
