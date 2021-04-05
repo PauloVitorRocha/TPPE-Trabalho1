@@ -1,5 +1,5 @@
-from activity_diagram import ActivityDiagram
-from decision_node import DecisionStream
+from activity.activity_diagram import ActivityDiagram
+from activity.decision_node import DecisionStream
 
 
 def test_activity_diagram():
@@ -164,7 +164,7 @@ def test_decision_create_merge():
 
     decision.create_merge("ndm1")
 
-    assert decision.elements[0] == 2
+    assert decision.elements[0] == 1
     assert decision.merge_node == "ndm1"
 
 
@@ -173,7 +173,7 @@ def test_decision_create_merge2():
 
     decision.create_merge("ndm2")
 
-    assert decision.elements[0] == 2
+    assert decision.elements[0] == 1
     assert decision.merge_node == "ndm2"
 
 
@@ -182,35 +182,8 @@ def test_decision_create_merge3():
 
     decision.create_merge("ndm3")
 
-    assert decision.elements[0] == 2
+    assert decision.elements[0] == 1
     assert decision.merge_node == "ndm3"
-
-
-def test_decision_create_final():
-    decision = DecisionStream()
-
-    decision.create_final("ndf1")
-
-    assert decision.elements[0] == 1
-    assert decision.final_node == "ndf1"
-
-
-def test_decision_create_final2():
-    decision = DecisionStream()
-
-    decision.create_final("ndf2")
-
-    assert decision.elements[0] == 1
-    assert decision.final_node == "ndf2"
-
-
-def test_decision_create_final3():
-    decision = DecisionStream()
-
-    decision.create_final("ndf3")
-
-    assert decision.elements[0] == 1
-    assert decision.final_node == "ndf3"
 
 
 def test_create_decision():
@@ -236,7 +209,7 @@ def test_create_decision():
         obj.elements.decision_node[0][0].transitions[0].transition_prob
     ) == 8.59
 
-    assert obj.elements.decision_node[0][0].elements[1] == 2
+    assert obj.elements.decision_node[0][0].elements[1] == 1
     assert obj.elements.decision_node[0][0].merge_node == 'ndm1'
 
 
@@ -248,7 +221,7 @@ def test_create_decision2():
     decision = DecisionStream()
     decision.create_activity('nda2')
     decision.create_transition('ndt2', 9.50)
-    decision.create_final('ndf1')
+    decision.create_merge('nm1')
 
     obj.elements.create_decision(decision)
 
@@ -264,7 +237,7 @@ def test_create_decision2():
     ) == 9.50
 
     assert obj.elements.decision_node[0][0].elements[1] == 1
-    assert obj.elements.decision_node[0][0].final_node == 'ndf1'
+    assert obj.elements.decision_node[0][0].merge_node == 'nm1'
 
 
 def test_create_decision3():
@@ -295,10 +268,10 @@ def test_create_decision3():
         obj.elements.decision_node[0][0].transitions[0].transition_prob
     ) == 9.49
 
-    assert obj.elements.decision_node[0][0].elements[1] == 2
+    assert obj.elements.decision_node[0][0].elements[1] == 1
     assert obj.elements.decision_node[0][0].merge_node == 'ndm3.1'
 
-    assert obj.elements.decision_node[0][1].elements[0] == 2
+    assert obj.elements.decision_node[0][1].elements[0] == 1
     assert obj.elements.decision_node[0][1].merge_node == 'ndm3.2'
 
 
@@ -376,7 +349,7 @@ def test_create_final():
     obj.create_initial_node('n1')
     obj.elements.create_final('f1')
 
-    assert 'f1' == obj.elements.final_node[0]
+    assert 'f1' == obj.elements.final_node
     assert 3 == obj.elements.elements_order[0]
 
 
@@ -386,7 +359,7 @@ def test_create_final2():
     obj.create_initial_node('n2')
     obj.elements.create_final('f2')
 
-    assert 'f2' == obj.elements.final_node[0]
+    assert 'f2' == obj.elements.final_node
     assert 3 == obj.elements.elements_order[0]
 
 
@@ -396,13 +369,9 @@ def test_create_final3():
     obj.create_initial_node('n3')
 
     obj.elements.create_final('f3')
-    obj.elements.create_final('f3.1')
 
-    assert 'f3' == obj.elements.final_node[0]
+    assert 'f3' == obj.elements.final_node
     assert 3 == obj.elements.elements_order[0]
-
-    assert 'f3.1' == obj.elements.final_node[1]
-    assert 3 == obj.elements.elements_order[1]
 
 
 def test_create_transition():

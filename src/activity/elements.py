@@ -1,4 +1,5 @@
-from exceptions import ActivityDiagramRuleException
+from .exceptions import ActivityDiagramRuleException
+
 
 class ActivityElements():
 
@@ -38,8 +39,7 @@ class ActivityElements():
         self.elements_order.append(2)
 
     def create_final(self, name):
-        
-        if self.final_node != None:
+        if self.final_node is not None:
             raise ActivityDiagramRuleException
 
         self.final_node = name
@@ -53,7 +53,7 @@ class ActivityElements():
         d_count = 0
         m_count = 0
 
-        if self.final_node == None:
+        if self.final_node is None:
             raise ActivityDiagramRuleException
 
         for i in self.elements_order:
@@ -75,7 +75,6 @@ class ActivityElements():
                     j += 1
 
                 f.write("\t\t</DecisionNode>\n")
-                
                 d_count += 1
 
             elif i == 2:

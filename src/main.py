@@ -1,6 +1,6 @@
-from activity_diagram import ActivityDiagram
-from decision_node import DecisionStream
-
+from activity.activity_diagram import ActivityDiagram
+from activity.decision_node import DecisionStream
+from sequence.create_sequence import create_sequence_diagram
 import os
 
 
@@ -129,5 +129,6 @@ if __name__ == "__main__":
 
                 break
 
+        create_sequence_diagram(act.elements.activity_name)
     else:
         print("Saindo...\n")

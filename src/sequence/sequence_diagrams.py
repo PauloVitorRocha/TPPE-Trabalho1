@@ -1,7 +1,7 @@
-from lifelines import Lifelines
-from fragments import Fragments
+from .lifelines import Lifelines
+from .fragments import Fragments
 
-from excepts import EmptyOptionalFragment
+from .excepts import EmptyOptionalFragment
 
 
 class SequenceDiagrams():

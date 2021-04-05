@@ -1,4 +1,5 @@
-from transitions import ActivityTransitions
+from .transitions import ActivityTransitions
+
 
 class DecisionStream():
 

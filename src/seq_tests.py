@@ -1,5 +1,5 @@
-from sequence_diagrams import SequenceDiagrams
-from sequence_diagram_block import SequenceDiagramBlock
+from sequence.sequence_diagrams import SequenceDiagrams
+from sequence.sequence_diagram_block import SequenceDiagramBlock
 
 
 def test_sequence_diagram():
@@ -223,21 +223,6 @@ def test_persist_fragments2():
 
 
 def test_persist_fragments3():
-    obj = SequenceDiagrams()
-
-    seq_diagram = SequenceDiagramBlock('sq1', '[guard]')
-    obj.create_single_sequence_diagram(seq_diagram)
-
-    obj.sequence_diagrams[0].persist_fragments('f1')
-    obj.sequence_diagrams[0].persist_fragments('f2')
-    obj.sequence_diagrams[0].persist_fragments('f3')
-
-    assert 'f1' == obj.sequence_diagrams[0].fragments[0]
-    assert 'f2' == obj.sequence_diagrams[0].fragments[1]
-    assert 'f3' == obj.sequence_diagrams[0].fragments[2]
-
-
-def test_elements_update():
     obj = SequenceDiagrams()
 
     seq_diagram = SequenceDiagramBlock('sq1', '[guard]')

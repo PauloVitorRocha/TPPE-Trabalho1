@@ -1,14 +1,12 @@
-from sequence_diagrams import SequenceDiagrams
-from sequence_diagram_block import SequenceDiagramBlock
-
+from .sequence_diagrams import SequenceDiagrams
+from .sequence_diagram_block import SequenceDiagramBlock
 import os
 
-from excepts import EmptyGuardConditionException, MessageFormatException
+from .excepts import EmptyGuardConditionException, MessageFormatException
 
 
-if __name__ == "__main__":
+def create_sequence_diagram(activities):
     seq = SequenceDiagrams()
-
     while(1):
         os.system("clear")
 

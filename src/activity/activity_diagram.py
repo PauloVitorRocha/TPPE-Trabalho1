@@ -1,5 +1,5 @@
-from elements import ActivityElements
-from transitions import ActivityTransitions
+from .elements import ActivityElements
+from .transitions import ActivityTransitions
 
 
 class ActivityDiagram():

@@ -1,6 +1,6 @@
-from message import Messages
+from .message import Messages
 
-from excepts import MessageFormatException
+from .excepts import MessageFormatException
 
 
 class SequenceDiagramBlock:
