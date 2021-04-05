@@ -5,13 +5,13 @@ import os
 from .excepts import EmptyGuardConditionException, MessageFormatException
 
 
-def create_sequence_diagram(activities):
+def create_sequence_diagram(activity):
     seq = SequenceDiagrams()
     while(1):
         os.system("clear")
 
         option = int(input(
-            "Deseja escolher inserir\n" +  #
+            "Criando Diagrama de Sequencia da Atividade {}\n".format(activity) +  #
             "1 - Lifeline\n" +
             "2 - Fragmentos\n" +
             "3 - Diagrama de Sequência\n" +
@@ -82,5 +82,5 @@ def create_sequence_diagram(activities):
             seq.create_single_sequence_diagram(sequence_diagram)
 
         else:
-            seq.create_xml()
+            seq.create_xml(activity)
             break

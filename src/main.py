@@ -1,5 +1,6 @@
 from activity.activity_diagram import ActivityDiagram
 from activity.decision_node import DecisionStream
+from activity.exceptions import ActivityRepresentationException
 from sequence.create_sequence import create_sequence_diagram
 import os
 
@@ -19,7 +20,7 @@ if __name__ == "__main__":
                 "-- Criação do Diagrama de Atividades --\n" +
                 "1 - Inserir Elementos\n" +
                 "2 - Inserir Transição\n" +
-                "3 - Finalizar e Salvar\n" +
+                "3 - Finalizar Diagrama de Atividade\n" +
                 "-> "
             ))
 
@@ -43,8 +44,6 @@ if __name__ == "__main__":
                     if option1 == 1:
                         activity_name = input("Nome da Atividade: ")
                         act.elements.create_activity(activity_name)
-
-                        # COMEÇAR AQUI O DIAGRAMA DE SEQUÊNCIA ??
 
                     elif option1 == 2:
                         streams = int(input("Quantidade de Fluxos: "))
@@ -99,9 +98,6 @@ if __name__ == "__main__":
 
                         act.elements.aux_decision()
 
-                        # decision_node = input("Nome do Nó de Decisão: ")
-                        # act.elements.create_decision(decision_node)
-
                     elif option1 == 3:
                         merge = input("Nome do Nó de Fusão: ")
                         act.elements.create_merge(merge)
@@ -116,8 +112,6 @@ if __name__ == "__main__":
                     else:
                         pass
 
-                # TODO: TRATAR SOBRESCRIÇÃO DE ELEMENTOS
-
             elif option == 2:
                 name = input("Nome da Transição: ")
                 prob = float(input("Probabilidade da Transição: "))
@@ -129,6 +123,30 @@ if __name__ == "__main__":
 
                 break
 
-        create_sequence_diagram(act.elements.activity_name)
+        created = [False for i in range(len(act.elements.activity_name))]
+
+        while True:
+            os.system("clear")
+            print("-- Criação dos Diagramas de Sequencia ")
+
+            activities = [name for name in act.elements.activity_name]
+
+            for i in range(len(activities)):
+                print(
+                    "{} - Diagrama de Sequencia da Atividade {}"
+                    .format(i+1, activities[i])
+                )
+
+            print("{} - Sair".format(len(activities)+1))
+            option = int(input("-> "))
+
+            if option >= len(activities) + 1:
+                for i in range(len(activities)):
+                    if not created[i]:
+                        raise ActivityRepresentationException
+                break
+
+            created[option-1] = True
+            create_sequence_diagram(activities[option-1])
     else:
         print("Saindo...\n")

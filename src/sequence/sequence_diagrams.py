@@ -84,8 +84,8 @@ class SequenceDiagrams():
 
             f.write("\t</SequenceDiagram>\n")
 
-    def create_xml(self):
-        f = open("sequence_diagram.xml", "w")
+    def create_xml(self, activity):
+        f = open("sequence_diagram_activity_{}.xml".format(activity), "w")
 
         f.write("<SequenceDiagrams>\n")
 
